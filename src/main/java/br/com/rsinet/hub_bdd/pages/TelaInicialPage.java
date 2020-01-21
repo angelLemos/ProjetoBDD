@@ -25,7 +25,7 @@ public class TelaInicialPage {
 
 	@FindBy(how = How.ID, using = "menuSearch")
 	private WebElement lnkPesquisaProdutoCampo;
-	
+
 	@FindBy(how = How.ID, using = "autoComplete")
 	private WebElement txtPesquisaProdutoCampo;
 
@@ -33,8 +33,11 @@ public class TelaInicialPage {
 		this.driver = driver;
 	}
 
-	public void ClicarEmCriarNovaConta() {
+	public void clicarEmMenuUsuario() {
 		lnkUser.click();
+	}
+
+	public void ClicarEmCriarNovaConta() {
 
 		// Comando de espera e seleciona o link Criar Nova Conta
 //		WebElement element = lnkCriarNovaConta;
@@ -45,7 +48,7 @@ public class TelaInicialPage {
 		Actions actions = new Actions(driver);
 		actions.moveToElement(lnkCriarNovaConta).click().perform();
 		lnkCriarNovaConta.click();
-      
+
 	}
 
 	public void ClicarProdutoTelaInicial() {
@@ -53,13 +56,11 @@ public class TelaInicialPage {
 		txtPesquisarProdutoTela.click();
 	}
 
-	public void PesquisarProdutoCampo(String nomeProduto) {
-		// Busca produto por pesquisa
-//		WebDriverWait wait = new WebDriverWait(driver, 15);
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("CREATE NEW ACCOUNT")));
-//		Actions actions = new Actions(driver);
-//		actions.moveToElement(lnkPesquisaProdutoCampo).click().perform();
+	public void clicarNaLupa() {
 		lnkPesquisaProdutoCampo.click();
+	}
+
+	public void insereProduto(String nomeProduto) {
 		txtPesquisaProdutoCampo.sendKeys(nomeProduto);
 		txtPesquisaProdutoCampo.sendKeys(Keys.RETURN);
 

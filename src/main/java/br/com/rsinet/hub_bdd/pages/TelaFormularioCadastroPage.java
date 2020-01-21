@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class TelaFormularioCadastroPage {
-	
+
 	final WebDriver driver;
 
 	@FindBy(how = How.NAME, using = "usernameRegisterPage")
@@ -53,35 +53,61 @@ public class TelaFormularioCadastroPage {
 
 	@FindBy(how = How.ID, using = "register_btnundefined")
 	private WebElement btnRegistrar;
-	
-	public TelaFormularioCadastroPage (WebDriver driver) {
+
+	public TelaFormularioCadastroPage(WebDriver driver) {
 		this.driver = driver;
 	}
 
-	public void PreencherDetalhesDaConta(String userName, String email, String senha, String confirmSenha)
-			throws Exception {
-		
-		txtUsuario.sendKeys(userName);
+	public void insereNomeUsuario(String nomeUsuario) throws Exception {
+
+		txtUsuario.sendKeys(nomeUsuario);
+	}
+
+	public void insereEmail(String email) throws Exception {
 		txtEmail.sendKeys(email);
+	}
+
+	public void insereSenha(String senha) throws Exception {
 		txtSenha.sendKeys(senha);
+	}
+
+	public void confirmaSenha(String confirmSenha) throws Exception {
 		txtConfirmaSenha.sendKeys(confirmSenha);
 
 	}
 
-	public void PreencherDetalhesPessoais(String nome, String sobrenome, String telefone) throws IOException {
+	public void insereNome(String nome) throws IOException {
 		txtNome.sendKeys(nome);
+	}
+
+	public void insereSobrenome(String sobrenome) throws IOException {
+
 		txtSobrenome.sendKeys(sobrenome);
+	}
+
+	public void insereTelefone(String telefone) throws IOException {
 		txtTelefone.sendKeys(telefone);
 
 	}
 
-	public void PreencherEndereco(String pais, String cidade, String endereco, String estado, String cep)
-			throws IOException, InterruptedException {
+	public void selecionaPais(String pais) throws IOException, InterruptedException {
 		Thread.sleep(1000);
 		cbxPais.sendKeys(pais);
+	}
+
+	public void insereCidade(String cidade) throws IOException, InterruptedException {
 		txtCidade.sendKeys(cidade);
+	}
+
+	public void insereEndereco(String endereco) throws IOException, InterruptedException {
 		txtEndereco.sendKeys(endereco);
+	}
+
+	public void insereEstado(String estado) throws IOException, InterruptedException {
 		txtEstado.sendKeys(estado);
+	}
+
+	public void insereCEP(String cep) throws IOException, InterruptedException {
 		txtCEP.sendKeys(cep);
 	}
 
@@ -92,11 +118,11 @@ public class TelaFormularioCadastroPage {
 	public void ClicarEmRegistrar() {
 		btnRegistrar.click();
 	}
-	
+
 	public boolean verificarSeRegistrarEstaDisponivel() {
 		new Actions(driver).moveToElement(btnRegistrar).perform();
 		return btnRegistrar.isEnabled();
-		
+
 	}
 
 }
