@@ -11,11 +11,12 @@ import cucumber.api.junit.Cucumber;
 		features = "src/test/resources/features",
 		glue= {"br.com.rsinet.hub_bdd.steps"},
 		plugin = "pretty",
+		tags = {"@CriarCadastroComSucesso, @validarBotao"},
 		monochrome = true,
 		snippets = SnippetType.CAMELCASE,
 		dryRun = false,
 		strict = false
 		)
-public class Runner {
+public class cadastroRunner {
 
 }

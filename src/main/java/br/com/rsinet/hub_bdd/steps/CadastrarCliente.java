@@ -1,8 +1,7 @@
 package br.com.rsinet.hub_bdd.steps;
 
 import static br.com.rsinet.hub_bdd.utils.DriverFactory.fecharDriver;
-
-import java.util.concurrent.TimeUnit;
+import static br.com.rsinet.hub_bdd.utils.DriverFactory.inicializarDriver;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -11,11 +10,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import br.com.rsinet.hub_bdd.pages.TelaFormularioCadastroPage;
 import br.com.rsinet.hub_bdd.pages.TelaInicialPage;
-import br.com.rsinet.hub_bdd.utils.DriverFactory;
 import br.com.rsinet.hub_bdd.utils.ExcelDadosConfig;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 
@@ -32,7 +29,7 @@ public class CadastrarCliente {
 	@Before
 	public void Inicializa() throws Exception {
 
-		driver = DriverFactory.inicializarDriver();
+		driver = inicializarDriver();
 
 		telaInicial = PageFactory.initElements(driver, TelaInicialPage.class);
 
@@ -50,12 +47,7 @@ public class CadastrarCliente {
 
 	}
 
-	@Dado("^que usuario esta na pagina inicial do site Advantage$")
-	public void queUsuarioEstaNaPaginaInicialDoSiteAdvantage() throws Throwable {
-		driver.get("http://www.advantageonlineshopping.com/#/");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	}
+	
 
 	@Quando("^clicar em botao de login$")
 	public void clicarEmBotaoDeLogin() throws Throwable {
