@@ -24,10 +24,10 @@ public class TelaInicialPage {
 	private WebElement txtPesquisarProdutoTela;
 
 	@FindBy(how = How.ID, using = "menuSearch")
-	private WebElement lnkPesquisaProdutoCampo;
+	private WebElement lnkClicarLupa;
 
 	@FindBy(how = How.ID, using = "autoComplete")
-	private WebElement txtPesquisaProdutoCampo;
+	private WebElement txtInserirNomeProduto;
 
 	public TelaInicialPage(WebDriver driver) {
 		this.driver = driver;
@@ -57,12 +57,12 @@ public class TelaInicialPage {
 	}
 
 	public void clicarNaLupa() {
-		lnkPesquisaProdutoCampo.click();
+		lnkClicarLupa.click();
 	}
 
 	public void insereProduto(String nomeProduto) {
-		txtPesquisaProdutoCampo.sendKeys(nomeProduto);
-		txtPesquisaProdutoCampo.sendKeys(Keys.RETURN);
+		txtInserirNomeProduto.sendKeys(nomeProduto);
+		txtInserirNomeProduto.sendKeys(Keys.RETURN);
 
 	}
 

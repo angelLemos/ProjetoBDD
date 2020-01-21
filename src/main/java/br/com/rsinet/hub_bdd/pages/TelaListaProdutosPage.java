@@ -10,21 +10,21 @@ public class TelaListaProdutosPage {
 	final WebDriver driver;
 
 	@FindBy(how = How.ID, using = "31")
-	private  WebElement txtProdutoDaTela;
+	private  WebElement txtProdutoDaTelaMouse;
 
 	@FindBy(how = How.ID, using = "11")
-	private WebElement txtProdutoDoCampo;
+	private WebElement txtProdutoLupaNotebook;
 
 	public TelaListaProdutosPage(WebDriver driver) {
 		this.driver = driver;
 	}
 
 	public void SelecionarProdutoDaTela() {
-		txtProdutoDaTela.click();
+		txtProdutoDaTelaMouse.click();
 	}
 
 	public void SelecionarProdutoDoCampo() {
-		txtProdutoDoCampo.click();
+		txtProdutoLupaNotebook.click();
 	}
 
 }
