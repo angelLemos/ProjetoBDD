@@ -1,6 +1,7 @@
 package br.com.rsinet.hub_bdd.steps;
 
 import static br.com.rsinet.hub_bdd.utils.DriverFactory.inicializarDriver;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -42,7 +43,7 @@ public class ProdutoTelaInicial {
 
 	@Entao("^estou na tela da opcao escolhida$")
 	public void estouNaTelaDaOpcaoEscolhida() throws Throwable {
-		Assert.assertEquals("http://www.advantageonlineshopping.com/#/product/31", driver.getCurrentUrl());
+		assertEquals("http://www.advantageonlineshopping.com/#/product/31", driver.getCurrentUrl());
 	}
 	
 	@Quando("^escolhe produto na tela inicial$")
@@ -52,6 +53,7 @@ public class ProdutoTelaInicial {
 
 	@Entao("^abre produto diferente do que consta na  tela inicial$")
 	public void abreProdutoDiferenteDoQueConstaNaTelaInicial() throws Throwable {
+		Thread.sleep(3000);
 		String textoElement = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/section[1]/article[1]/div[2]/div[2]/h1[1]")).getText();
 		Assert.assertEquals( textoElement, "HP CHROMEBOOK 14 G1(ES)");
 	}

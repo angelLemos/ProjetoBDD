@@ -1,6 +1,7 @@
 package br.com.rsinet.hub_bdd.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class TelaInicialPage {
 
 	final WebDriver driver;
+	JavascriptExecutor js;
 
 	@FindBy(how = How.ID, using = "menuUser")
 	private WebElement lnkUser;
@@ -63,7 +65,7 @@ public class TelaInicialPage {
 		txtSelecionaProdutoDaTela.click();
 	}
 
-	public void clicarNaLupa() {
+	public void clicarNaLupa() throws InterruptedException {
 		lnkClicarLupa.click();
 	}
 

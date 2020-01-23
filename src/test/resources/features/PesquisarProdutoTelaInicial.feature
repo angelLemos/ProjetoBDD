@@ -5,7 +5,7 @@ Contexto:
     Dado que usuario esta na pagina inicial do site Advantage
     Quando clicar na opcao desejada na tela home
     
-    @buscarProdutoPelaHome
+    @pesquisarProdutoPelaHome
     Cenario: Pesquisar produto pela tela home
     E escolher produto desejado na lista de produtos
     Entao estou na tela da opcao escolhida

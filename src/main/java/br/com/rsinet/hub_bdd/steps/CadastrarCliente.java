@@ -19,8 +19,6 @@ import cucumber.api.java.pt.Quando;
 public class CadastrarCliente {
 
 	WebDriver driver;
-//	ExtentReports extensao;
-//	ExtentTest logger;
 
 	TelaInicialPage telaInicial;
 
@@ -37,13 +35,6 @@ public class CadastrarCliente {
 
 		ExcelDadosConfig.setExcelFile("target/Excel/dados.xlsx", "Planilha1");
 
-//		ExtentHtmlReporter reporte = new ExtentHtmlReporter("./Reports/cadastroCliente.html");
-//
-//		extensao = new ExtentReports();
-//
-//		extensao.attachReporter(reporte);
-//
-//		logger = extensao.createTest("Cadastro Realizado!");
 
 	}
 

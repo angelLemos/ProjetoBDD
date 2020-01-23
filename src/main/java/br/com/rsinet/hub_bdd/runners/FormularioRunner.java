@@ -17,6 +17,6 @@ import cucumber.api.junit.Cucumber;
 		dryRun = false,
 		strict = false
 		)
-public class cadastroRunner {
+public class FormularioRunner {
 
 }
