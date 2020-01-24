@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import br.com.rsinet.hub_bdd.pages.TelaInicialPage;
 import br.com.rsinet.hub_bdd.pages.TelaListaProdutosPage;
 import cucumber.api.java.Before;
+import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 
@@ -28,6 +29,11 @@ public class ProdutoTelaInicial {
 
 		telaInicial = PageFactory.initElements(driver, TelaInicialPage.class);
 		telaLista = PageFactory.initElements(driver, TelaListaProdutosPage.class);
+	}
+	
+	@Dado("^que usuario esta na pagina inicial do site Advantage$")
+	public void queUsuarioEstaNaPaginaInicialDoSiteAdvantage() throws Throwable {
+		driver.get("http://www.advantageonlineshopping.com/#/");
 	}
 	
 

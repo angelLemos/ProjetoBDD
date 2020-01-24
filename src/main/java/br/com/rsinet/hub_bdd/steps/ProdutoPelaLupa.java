@@ -67,7 +67,7 @@ public class ProdutoPelaLupa {
 	public void constata_que_o_produto_nao_existe() throws Throwable {
 		js = (JavascriptExecutor) driver;
 		js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 1000);");
-		assertTrue(driver.getPageSource().contains(" No results for \"smartphones\""));
+		assertTrue(driver.getPageSource().contains("No results for \"smartphones\""));
 
 	}
 

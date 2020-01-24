@@ -6,14 +6,13 @@ import org.openqa.selenium.WebDriver;
 
 import cucumber.api.java.pt.Dado;
 
-public class Contexto {
+public class HomeContexto {
 	WebDriver driver;
 
 
 
-	@Dado("^que usuario esta na pagina inicial do site Advantage$")
-	public void queUsuarioEstaNaPaginaInicialDoSiteAdvantage() throws Throwable {
-		driver = inicializarDriver();
+//	@Dado("^que usuario esta na pagina inicial do site Advantage$")
+//	public void queUsuarioEstaNaPaginaInicialDoSiteAdvantage() throws Throwable {
+//		driver = inicializarDriver();
 
 	}
-}
