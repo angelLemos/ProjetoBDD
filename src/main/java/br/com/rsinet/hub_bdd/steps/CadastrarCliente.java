@@ -5,14 +5,14 @@ import static br.com.rsinet.hub_bdd.utils.DriverFactory.inicializarDriver;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.rsinet.hub_bdd.pages.TelaFormularioCadastroPage;
 import br.com.rsinet.hub_bdd.pages.TelaInicialPage;
 import br.com.rsinet.hub_bdd.utils.ExcelDadosConfig;
+import br.com.rsinet.hub_bdd.utils.ScreenshotUtils;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.pt.Entao;
@@ -23,8 +23,10 @@ public class CadastrarCliente {
 	WebDriver driver;
 
 	TelaInicialPage telaInicial;
+	JavascriptExecutor js;
 
 	TelaFormularioCadastroPage formulario;
+	private String testName;
 
 	@Before
 	public void Inicializa() throws Exception {
@@ -41,7 +43,6 @@ public class CadastrarCliente {
 	}
 
 	
-
 	@Quando("^clicar em botao de login$")
 	public void clicarEmBotaoDeLogin() throws Throwable {
 		telaInicial.clicarEmMenuUsuario();
@@ -138,14 +139,18 @@ public class CadastrarCliente {
 	@Entao("^usuario cadastrado com sucesso$")
 	public void usuarioCadastradoComSucesso() throws Throwable {
 		String nomeUsuario = ExcelDadosConfig.getCellData(1, 0);
-		WebDriverWait wait = new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("menuUserLink")));
+		js = (JavascriptExecutor) driver;
+        js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1],2000);");
 		Assert.assertEquals(nomeUsuario, driver.findElement(By.id("menuUserLink")).getText());
+		testName = new Throwable().getStackTrace()[0].getMethodName();
+		ScreenshotUtils.getScreenshot(driver, testName);
 	}
 
 	@Entao("^botao esta desabilitado$")
 	public void botaoEstaDesabilitado() throws Throwable {
 		Assert.assertFalse(formulario.verificarSeRegistrarEstaDisponivel());
+		testName = new Throwable().getStackTrace()[0].getMethodName();
+		ScreenshotUtils.getScreenshot(driver, testName);
 	}
 
 	@After

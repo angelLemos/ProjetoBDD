@@ -5,11 +5,13 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import br.com.rsinet.hub_bdd.pages.TelaInicialPage;
 import br.com.rsinet.hub_bdd.pages.TelaListaProdutosPage;
+import br.com.rsinet.hub_bdd.utils.ScreenshotUtils;
 import cucumber.api.java.Before;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
@@ -20,7 +22,8 @@ public class ProdutoTelaInicial {
 	
 	TelaInicialPage telaInicial;
 	TelaListaProdutosPage telaLista;
-	
+	private String testName;
+	JavascriptExecutor js;
 
 	@Before
 	public void Inicializa() throws Exception {
@@ -44,12 +47,18 @@ public class ProdutoTelaInicial {
 
 	@Quando("^escolher produto desejado na lista de produtos$")
 	public void escolherProdutoDesejadoNaListaDeProdutos() throws Throwable {
-	   telaLista.SelecionarProdutoDaTela();
+		js = (JavascriptExecutor) driver;
+	    js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1],2000);");
+		telaLista.SelecionarProdutoDaTela();
+	
 	}
 
 	@Entao("^estou na tela da opcao escolhida$")
 	public void estouNaTelaDaOpcaoEscolhida() throws Throwable {
+		
 		assertEquals("http://www.advantageonlineshopping.com/#/product/31", driver.getCurrentUrl());
+		testName = new Throwable().getStackTrace()[0].getMethodName();
+		ScreenshotUtils.getScreenshot(driver, testName);
 	}
 	
 	@Quando("^escolhe produto na tela inicial$")
@@ -59,9 +68,12 @@ public class ProdutoTelaInicial {
 
 	@Entao("^abre produto diferente do que consta na  tela inicial$")
 	public void abreProdutoDiferenteDoQueConstaNaTelaInicial() throws Throwable {
-		Thread.sleep(3000);
+		js = (JavascriptExecutor) driver;
+	    js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1],2000);");
 		String textoElement = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/section[1]/article[1]/div[2]/div[2]/h1[1]")).getText();
 		Assert.assertEquals( textoElement, "HP CHROMEBOOK 14 G1(ES)");
+		testName = new Throwable().getStackTrace()[0].getMethodName();
+		ScreenshotUtils.getScreenshot(driver, testName);
 	}
 
 

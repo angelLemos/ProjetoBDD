@@ -2,6 +2,7 @@ package br.com.rsinet.hub_bdd.runners;
 
 import java.io.File;
 
+
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
@@ -15,6 +16,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features = "src/test/resources/features",
 		glue= {"br.com.rsinet.hub_bdd.steps"},
+		tags = {"@pesquisarProdutoPelaHome, @validarAberturaProdutoErrado"},
 		plugin = {"pretty" , "com.cucumber.listener.ExtentCucumberFormatter:Reports/reportTestes.html"},
 		monochrome = true,
 		snippets = SnippetType.CAMELCASE,
