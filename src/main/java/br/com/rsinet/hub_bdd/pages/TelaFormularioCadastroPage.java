@@ -91,7 +91,7 @@ public class TelaFormularioCadastroPage {
 	}
 
 	public void selecionaPais(String pais) throws IOException, InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		cbxPais.sendKeys(pais);
 	}
 

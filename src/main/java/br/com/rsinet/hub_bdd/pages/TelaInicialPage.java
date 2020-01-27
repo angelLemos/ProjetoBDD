@@ -43,11 +43,6 @@ public class TelaInicialPage {
 	}
 
 	public void ClicarEmCriarNovaConta() {
-
-		// Comando de espera e seleciona o link Criar Nova Conta
-//		WebElement element = lnkCriarNovaConta;
-//        JavascriptExecutor executor = (JavascriptExecutor) driver;
-//        executor.executeScript("arguments[0].click();", element);
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("CREATE NEW ACCOUNT")));
 		Actions actions = new Actions(driver);
