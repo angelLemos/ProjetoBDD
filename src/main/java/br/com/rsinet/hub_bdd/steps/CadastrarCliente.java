@@ -20,12 +20,12 @@ import cucumber.api.java.pt.Quando;
 
 public class CadastrarCliente {
 
-	WebDriver driver;
+	private WebDriver driver;
 
-	TelaInicialPage telaInicial;
-	JavascriptExecutor js;
+	private TelaInicialPage telaInicial;
+	private JavascriptExecutor js;
 
-	TelaFormularioCadastroPage formulario;
+	private TelaFormularioCadastroPage formulario;
 	private String testName;
 
 	@Before

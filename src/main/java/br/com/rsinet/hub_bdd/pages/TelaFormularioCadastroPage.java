@@ -2,17 +2,17 @@ package br.com.rsinet.hub_bdd.pages;
 
 import java.io.IOException;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.Select;
 
 public class TelaFormularioCadastroPage {
 
 	final WebDriver driver;
-	JavascriptExecutor js;
+
 
 	@FindBy(how = How.NAME, using = "usernameRegisterPage")
 	private WebElement txtUsuario;
@@ -93,14 +93,9 @@ public class TelaFormularioCadastroPage {
 	}
 
 	public void selecionaPais(String pais) throws IOException, InterruptedException {
-		js = (JavascriptExecutor) driver;
-		js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 3000);");
-		
-		// tentativa de selecionar sem o tempo de espera
-//	    Select select = new Select(cbxPais);
-//        select.selectByVisibleText(pais);
-		
-		cbxPais.sendKeys(pais);
+	    Select select = new Select(cbxPais);
+        select.selectByVisibleText(pais);
+	
 	}
 
 	public void insereCidade(String cidade) throws IOException, InterruptedException {
@@ -120,8 +115,6 @@ public class TelaFormularioCadastroPage {
 	}
 
 	public void ClicarEmAceitarTermos() {
-		js = (JavascriptExecutor) driver;
-		js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 2000);");
 		chkAceitarTermos.click();
 	}
 

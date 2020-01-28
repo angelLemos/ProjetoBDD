@@ -18,12 +18,12 @@ import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 
 public class ProdutoTelaInicial {
-	WebDriver driver;
+	private WebDriver driver;
 	
-	TelaInicialPage telaInicial;
-	TelaListaProdutosPage telaLista;
+	private TelaInicialPage telaInicial;
+	private TelaListaProdutosPage telaLista;
 	private String testName;
-	JavascriptExecutor js;
+	private JavascriptExecutor js;
 
 	@Before
 	public void Inicializa() throws Exception {

@@ -16,11 +16,11 @@ import cucumber.api.java.pt.Quando;
 
 public class ProdutoPelaLupa {
 
-	WebDriver driver;
+	private WebDriver driver;
 
-	TelaInicialPage telaInicial;
-	TelaListaProdutosPage telaLista;
-	JavascriptExecutor js;
+	private TelaInicialPage telaInicial;
+	private TelaListaProdutosPage telaLista;
+	private JavascriptExecutor js;
 	private String testName;
 
 	@Before
