@@ -37,7 +37,7 @@ public class CadastrarCliente {
 
 		formulario = PageFactory.initElements(driver, TelaFormularioCadastroPage.class);
 
-		ExcelDadosConfig.setExcelFile("target/Excel/dados.xlsx", "Planilha1");
+		ExcelDadosConfig.setExcelFile("C:\\Users\\angelica.jesus\\Desktop\\dados.xlsx", "Planilha1");
 
 
 	}
