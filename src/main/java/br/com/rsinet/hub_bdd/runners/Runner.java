@@ -19,7 +19,7 @@ import cucumber.api.junit.Cucumber;
 		tags = {"@CriarCadastroComSucesso"},
 		plugin = {"pretty" , "com.cucumber.listener.ExtentCucumberFormatter:target/reportTestes.html"},
 	
-		//exibir a saída do console de maneira muito legível
+		//exibir a saída do console de forma legível
 		monochrome = true,
 
 		snippets = SnippetType.CAMELCASE,
