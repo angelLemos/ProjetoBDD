@@ -16,7 +16,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features = "src/test/resources/features",
 		glue= {"br.com.rsinet.hub_bdd.steps"},
-		//tags = {"@CriarCadastroComSucesso"},
+		tags = {"@CriarCadastroComSucesso"},
 		plugin = {"pretty" , "com.cucumber.listener.ExtentCucumberFormatter:Reports/reportTestes.html"},
 	
 		//exibir a saída do console de maneira muito legível
