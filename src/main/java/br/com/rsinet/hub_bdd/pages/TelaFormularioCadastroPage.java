@@ -120,6 +120,8 @@ public class TelaFormularioCadastroPage {
 	}
 
 	public void ClicarEmAceitarTermos() {
+		js = (JavascriptExecutor) driver;
+		js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 2000);");
 		chkAceitarTermos.click();
 	}
 

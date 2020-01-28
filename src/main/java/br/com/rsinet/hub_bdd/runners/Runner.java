@@ -18,9 +18,15 @@ import cucumber.api.junit.Cucumber;
 		glue= {"br.com.rsinet.hub_bdd.steps"},
 		//tags = {"@validarBotao"},
 		plugin = {"pretty" , "com.cucumber.listener.ExtentCucumberFormatter:Reports/reportTestes.html"},
+	
+		//exibir a saída do console de maneira muito legível
 		monochrome = true,
+
 		snippets = SnippetType.CAMELCASE,
+		//verifica se todas as etapas possuem a definição de etapa
 		dryRun = false,
+
+        //falhará na execução se houver etapas indefinidas ou pendentes
 		strict = false
 		)
 public class Runner {
