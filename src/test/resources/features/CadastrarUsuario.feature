@@ -25,5 +25,6 @@ Funcionalidade: Cadastrar Usuario
     Entao usuario cadastrado com sucesso
 
   @validarBotao
-  Cenario: Validar se o botao registrar esta desabilitado sem informacoes preenchidos
+  Cenario: Validar se o botao registrar esta desabilitado sem informacoes preenchidas
+    E clicar em aceitar termos
     Entao botao esta desabilitado

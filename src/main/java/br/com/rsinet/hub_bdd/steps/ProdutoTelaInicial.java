@@ -37,6 +37,7 @@ public class ProdutoTelaInicial {
 	@Dado("^que usuario esta na pagina inicial do site Advantage$")
 	public void queUsuarioEstaNaPaginaInicialDoSiteAdvantage() throws Throwable {
 		driver.get("http://www.advantageonlineshopping.com/#/");
+		driver.manage().window().maximize();
 	}
 	
 

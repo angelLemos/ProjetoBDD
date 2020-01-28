@@ -1,5 +1,7 @@
 package br.com.rsinet.hub_bdd.steps;
 
+import static br.com.rsinet.hub_bdd.utils.DriverFactory.inicializarDriver;
+
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import br.com.rsinet.hub_bdd.pages.TelaInicialPage;
 import br.com.rsinet.hub_bdd.pages.TelaListaProdutosPage;
-import br.com.rsinet.hub_bdd.utils.DriverFactory;
 import br.com.rsinet.hub_bdd.utils.ScreenshotUtils;
 import cucumber.api.java.Before;
 import cucumber.api.java.pt.Entao;
@@ -25,7 +26,7 @@ public class ProdutoPelaLupa {
 	@Before
 	public void Inicializa() throws Exception {
 
-		driver = DriverFactory.inicializarDriver();
+		driver = inicializarDriver();
 
 		telaInicial = PageFactory.initElements(driver, TelaInicialPage.class);
 		telaLista = PageFactory.initElements(driver, TelaListaProdutosPage.class);

@@ -2,6 +2,7 @@ package br.com.rsinet.hub_bdd.pages;
 
 import java.io.IOException;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.How;
 public class TelaFormularioCadastroPage {
 
 	final WebDriver driver;
+	JavascriptExecutor js;
 
 	@FindBy(how = How.NAME, using = "usernameRegisterPage")
 	private WebElement txtUsuario;
@@ -91,7 +93,13 @@ public class TelaFormularioCadastroPage {
 	}
 
 	public void selecionaPais(String pais) throws IOException, InterruptedException {
-		Thread.sleep(2000);
+		js = (JavascriptExecutor) driver;
+		js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 2000);");
+		
+		// tentativa de selecionar sem o tempo de espera
+//	    Select select = new Select(cbxPais);
+//        select.selectByVisibleText(pais);
+		
 		cbxPais.sendKeys(pais);
 	}
 
