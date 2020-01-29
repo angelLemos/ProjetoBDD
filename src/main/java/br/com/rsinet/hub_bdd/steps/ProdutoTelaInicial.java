@@ -5,9 +5,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.rsinet.hub_bdd.pages.TelaInicialPage;
 import br.com.rsinet.hub_bdd.pages.TelaListaProdutosPage;
@@ -23,7 +24,7 @@ public class ProdutoTelaInicial {
 	private TelaInicialPage telaInicial;
 	private TelaListaProdutosPage telaLista;
 	private String testName;
-	private JavascriptExecutor js;
+	private WebDriverWait wait;
 
 	@Before
 	public void Inicializa() throws Exception {
@@ -48,16 +49,15 @@ public class ProdutoTelaInicial {
 
 	@Quando("^escolher produto desejado na lista de produtos$")
 	public void escolherProdutoDesejadoNaListaDeProdutos() throws Throwable {
-		js = (JavascriptExecutor) driver;
-	    js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1],2000);");
 		telaLista.SelecionarProdutoDaTela();
 	
 	}
 
 	@Entao("^estou na tela da opcao escolhida$")
 	public void estouNaTelaDaOpcaoEscolhida() throws Throwable {
-		
-		assertEquals("http://www.advantageonlineshopping.com/#/product/31", driver.getCurrentUrl());
+		assertEquals(driver.getCurrentUrl(), "http://www.advantageonlineshopping.com/#/product/31");
+		wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html[1]/body[1]/div[3]/section[1]/article[1]/div[2]/div[2]/h1[1]")));
 		testName = new Throwable().getStackTrace()[0].getMethodName();
 		ScreenshotUtils.getScreenshot(driver, testName);
 	}
@@ -69,8 +69,6 @@ public class ProdutoTelaInicial {
 
 	@Entao("^abre produto diferente do que consta na  tela inicial$")
 	public void abreProdutoDiferenteDoQueConstaNaTelaInicial() throws Throwable {
-		js = (JavascriptExecutor) driver;
-	    js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1],2000);");
 		String textoElement = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/section[1]/article[1]/div[2]/div[2]/h1[1]")).getText();
 		Assert.assertEquals( textoElement, "HP CHROMEBOOK 14 G1(ES)");
 		testName = new Throwable().getStackTrace()[0].getMethodName();

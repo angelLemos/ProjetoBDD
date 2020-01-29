@@ -39,10 +39,8 @@ public class CadastrarCliente {
 
 		ExcelDadosConfig.setExcelFile("C:\\Users\\angelica.jesus\\Desktop\\dados.xlsx", "Planilha1");
 
-
 	}
 
-	
 	@Quando("^clicar em botao de login$")
 	public void clicarEmBotaoDeLogin() throws Throwable {
 		telaInicial.clicarEmMenuUsuario();
@@ -139,8 +137,9 @@ public class CadastrarCliente {
 	@Entao("^usuario cadastrado com sucesso$")
 	public void usuarioCadastradoComSucesso() throws Throwable {
 		String nomeUsuario = ExcelDadosConfig.getCellData(1, 0);
+		// utilizado tempo para poder esperar a pagina carregar para gerar o assert
 		js = (JavascriptExecutor) driver;
-        js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1],2000);");
+		js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1],2000);");
 		Assert.assertEquals(nomeUsuario, driver.findElement(By.id("menuUserLink")).getText());
 		testName = new Throwable().getStackTrace()[0].getMethodName();
 		ScreenshotUtils.getScreenshot(driver, testName);

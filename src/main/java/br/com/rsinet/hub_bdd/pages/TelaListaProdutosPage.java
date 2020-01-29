@@ -32,7 +32,7 @@ public class TelaListaProdutosPage {
 		   
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", txtProdutoLupaNotebook);
-		//txtProdutoLupaNotebook.click();
+		
 	}
 
 }

@@ -1,18 +1,16 @@
 package br.com.rsinet.hub_bdd.pages;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TelaInicialPage {
 
 	final WebDriver driver;
+	private JavascriptExecutor js;
 	
 
 	@FindBy(how = How.ID, using = "menuUser")
@@ -42,11 +40,13 @@ public class TelaInicialPage {
 	}
 
 	public void ClicarEmCriarNovaConta() {
-		WebDriverWait wait = new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("CREATE NEW ACCOUNT")));
-		Actions actions = new Actions(driver);
-		actions.moveToElement(lnkCriarNovaConta).click().perform();
-		lnkCriarNovaConta.click();
+//		WebDriverWait wait = new WebDriverWait(driver, 15);
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("CREATE NEW ACCOUNT")));
+//		Actions actions = new Actions(driver);
+//		actions.moveToElement(lnkCriarNovaConta).click().perform();
+//		lnkCriarNovaConta.click();
+		js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", lnkCriarNovaConta);
 
 	}
 
